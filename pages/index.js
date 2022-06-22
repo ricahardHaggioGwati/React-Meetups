@@ -3,6 +3,9 @@ import Head from 'next/dist/shared/lib/head';
 
 import MeetupList from '../components/meetups/MeetupList';
 
+//Enter your own mongodb connection string here
+const ConnectionUrl = ''
+
 const HomePage = (props) => {
 	return <>
 		<Head>
@@ -31,7 +34,7 @@ const HomePage = (props) => {
 
 export async function getStaticProps() {
 	//fetch data from api
-	const client = await MongoClient.connect('mongodb+srv://richard:9a08851G56Beex4E@cluster0.a4yla.mongodb.net/?retryWrites=true&w=majority')
+	const client = await MongoClient.connect(ConnectionUrl)
 	const db = client.db()
 
 	const meetupCollection = db.collection('meetups')

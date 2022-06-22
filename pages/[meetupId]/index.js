@@ -2,6 +2,9 @@ import MeetupDetail from '../../components/meetups/MeetupDetail';
 import { MongoClient, ObjectId } from 'mongodb';
 import Head from 'next/head';
 
+//Enter your own mongodb connection string here
+const ConnectionUrl = ''
+
 const MeetupDetails = (props) => {
 	return (
 		<>
@@ -21,7 +24,7 @@ const MeetupDetails = (props) => {
 
 export async function getStaticPaths() {
 	const client = await MongoClient.connect(
-		'mongodb+srv://richard:9a08851G56Beex4E@cluster0.a4yla.mongodb.net/?retryWrites=true&w=majority',
+		ConnectionUrl,
 	);
 	const db = client.db();
 
